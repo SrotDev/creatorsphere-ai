@@ -228,10 +228,10 @@ const Landing = () => {
         <div className="container mx-auto px-4 text-center text-muted-foreground">
           <p className="mb-4">© 2024 CreatorSphere. Empowering creators with AI.</p>
           <div className="flex gap-6 justify-center">
-            <a href="#" className="hover:text-primary transition-colors">About</a>
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
-            <a href="#" className="hover:text-primary transition-colors">Contact</a>
+            <button onClick={() => navigate('/about')} className="hover:text-primary transition-colors">About</button>
+            <button onClick={() => navigate('/privacy')} className="hover:text-primary transition-colors">Privacy</button>
+            <button onClick={() => navigate('/terms')} className="hover:text-primary transition-colors">Terms</button>
+            <button onClick={() => navigate('/contact')} className="hover:text-primary transition-colors">Contact</button>
           </div>
         </div>
       </footer>

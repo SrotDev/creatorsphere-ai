@@ -17,7 +17,7 @@ const Auth = () => {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      navigate('/dashboard');
+      navigate('/onboarding');
     }, 1500);
   };
 
@@ -27,7 +27,7 @@ const Auth = () => {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      navigate('/dashboard');
+      navigate('/onboarding');
     }, 1500);
   };
 

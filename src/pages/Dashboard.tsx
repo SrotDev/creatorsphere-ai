@@ -17,6 +17,7 @@ import {
   Check
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -64,10 +65,13 @@ const Dashboard = () => {
             </div>
             <span className="font-bold text-xl">CreatorSphere</span>
           </div>
-          <Button variant="ghost" size="sm" onClick={() => navigate('/')}>
-            <LogOut className="w-4 h-4 mr-2" />
-            Logout
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button variant="ghost" size="sm" onClick={() => navigate('/')}>
+              <LogOut className="w-4 h-4 mr-2" />
+              Logout
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -224,10 +228,10 @@ const Dashboard = () => {
                     </div>
 
                     <div className="flex gap-2 pt-2">
-                      <Button variant="outline" className="flex-1">
+                      <Button variant="outline" className="flex-1" onClick={() => navigate('/idea-vault')}>
                         Save to Vault
                       </Button>
-                      <Button variant="gradient" className="flex-1">
+                      <Button variant="gradient" className="flex-1" onClick={() => navigate('/planner')}>
                         Schedule Post
                       </Button>
                     </div>
@@ -244,15 +248,15 @@ const Dashboard = () => {
                 <CardTitle className="text-lg">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => navigate('/planner')}>
                   <Calendar className="w-4 h-4 mr-2" />
                   Content Planner
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => navigate('/market-pulse')}>
                   <TrendingUp className="w-4 h-4 mr-2" />
                   Market Pulse
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => navigate('/analytics')}>
                   <BarChart3 className="w-4 h-4 mr-2" />
                   Analytics
                 </Button>

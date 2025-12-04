@@ -54,6 +54,48 @@ const Dashboard = () => {
     { label: "Engagement", value: "4.2K", icon: BarChart3 },
   ];
 
+  const handleSelectedNiche = (niche: string) => {
+    const nicheValue = niche.toLowerCase();
+    setSelectedNiche(nicheValue);
+    setIsGenerating(true);
+    setTimeout(() => {
+      if (nicheValue === "lifestyle") {
+        setGeneratedIdea({
+          title: "10 Simple Habits to Transform Your Lifestyle in 2024 ✨",
+          caption: "Small changes make the biggest difference! 🌿 Here are 10 lifestyle habits that boosted my productivity, health, and happiness this year. Start with one, stay consistent, and watch your life shift for the better. Which habit are you adopting first? 🌞💚",
+          hashtags: "#Lifestyle #HealthyHabits #MindfulLiving #WellnessJourney #SelfCare #MotivationDaily #LifeTips #HabitBuilding #PositiveVibes",
+          format: "Instagram Reel / YouTube Short",
+          engagement: "High engagement potential"
+        })
+      } else if (nicheValue === "education") {
+        setGeneratedIdea({
+          title: "5 Study Techniques Every Student Must Use in 2024 📚",
+          caption: "Studying smarter beats studying harder! 💡 I’ve collected 5 powerful study methods backed by science that will help you remember more in less time. Perfect for school, university, or competitive exams. Which technique works best for you? 📖✨",
+          hashtags: "#Education #StudyTips #StudentLife #Learning #AcademicSuccess #Motivation #StudyHacks #ExamPrep #Productivity",
+          format: "Youtube 10-minute videos",
+          engagement: "High engagement potential for students"
+        })
+      } else if (nicheValue === "entertainment") {
+        setGeneratedIdea({
+          title: "Top 10 Must-Watch Movies of 2024 You Can’t Miss 🎬🔥",
+          caption: "Looking for your next movie-night pick? I’ve got you! 🍿 Here are 10 incredible films—from thrillers to feel-good stories—that dominated 2024. Grab your snacks and hit play. Which one tops your list? 🎥✨",
+          hashtags: "#Entertainment #Movies2024 #FilmLovers #MovieNight #TrendingNow #Cinema #Top10 #Recommendations #PopCulture",
+          format: "Instagram Reel / YouTube Short",
+          engagement: "High potential for shares and saves"
+        })
+      } else {
+          setGeneratedIdea({
+            title: "10 Must-Have VS Code Extensions for React Developers in 2024",
+            caption: "Level up your React development game with these essential VS Code extensions! 🚀 From productivity boosters to debugging tools, I've tested them all so you don't have to. Which one is your favorite? Drop a comment below! 💻✨",
+            hashtags: "#ReactJS #WebDevelopment #VSCode #Programming #TechTips #CodeNewbie #Developer #JavaScript #ReactDeveloper #TechEducation",
+            format: "Instagram Reel / YouTube Short",
+            engagement: "High potential for shares and saves"
+        });
+      }
+    setIsGenerating(false)
+    }, 2000);
+  }
+
   return (
     <div className="min-h-screen bg-gradient-subtle">
       {/* Header */}
@@ -129,7 +171,7 @@ const Dashboard = () => {
                           key={niche}
                           variant={selectedNiche === niche.toLowerCase() ? "default" : "outline"}
                           className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
-                          onClick={() => setSelectedNiche(niche.toLowerCase())}
+                          onClick={() => handleSelectedNiche(niche.toLowerCase())}
                         >
                           {niche}
                         </Badge>
@@ -141,7 +183,7 @@ const Dashboard = () => {
                     className="w-full" 
                     variant="gradient"
                     size="lg"
-                    onClick={handleGenerateIdea}
+                    onClick={() => handleSelectedNiche(selectedNiche)}
                     disabled={isGenerating}
                   >
                     {isGenerating ? (
@@ -277,6 +319,7 @@ const Dashboard = () => {
                     <Button 
                       variant="outline" 
                       className="w-full bg-white text-primary hover:bg-white/90"
+                      onClick={()=>{navigate("/pricing")}}
                     >
                       View Plans
                     </Button>
